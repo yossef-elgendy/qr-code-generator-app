@@ -32,12 +32,12 @@ To use the QR Code Generator App, follow these steps:
 
 3. **Run the App:**
    - After installing the dependencies, run `npm run dev` to start the application.
-   - The app will open in your default web browser at `http://localhost:3000`.
+   - The app will open in your default web browser at `http://localhost:5173`.
 
 ## Usage
 
 1. **Launch the App:**
-   - Open your web browser and navigate to `http://localhost:3000` (or the URL where the app is hosted).
+   - Open your web browser and navigate to `http://localhost:5173` (or the URL where the app is hosted).
 
 2. **Generate a QR Code:**
    - Enter the url you want to generate QR code for.
