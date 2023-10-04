@@ -6,7 +6,7 @@ import Popup from '../Popup';
 import domtoimage from 'dom-to-image';
 import Tooltip from '../Tooltip/Tooltip';
 
-const QrPopup: React.FC<QrPopupProps> = ({ isOpen, onClose, url }) => {
+const QrPopup: React.FC<QrPopupProps> = ({ isOpen, onClose, url, color }) => {
   const qrCodeRef = useRef<HTMLDivElement | null>(null);
   const [showTooltip, setShowTooltip] = useState<boolean>(false);
 
@@ -48,8 +48,8 @@ const QrPopup: React.FC<QrPopupProps> = ({ isOpen, onClose, url }) => {
 
   return (
     <Popup isOpen={isOpen} onClose={onClose}>
-      <div className="QrWrapper" ref={ qrCodeRef }>
-        <QRCode fgColor="#111729" value={url} />
+      <div className="QrWrapper" style={ { backgroundColor: color.hex } } ref={ qrCodeRef }>
+        <QRCode fgColor={ color.hex } value={url} />
       </div>
       <div className="QrActions">
         <button onClick={ downloadQRCodeAsImage }>Download</button>

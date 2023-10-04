@@ -2,11 +2,14 @@ import { useRef, useState } from 'react';
 import './App.scss';
 import QrPopup from './components/QrPopup';
 import ErrorPopup from './components/ErrorPopup/ErrorPopup';
+import { ColorPicker, useColor } from "react-color-palette";
+import "react-color-palette/css";
 
 function App() {
   const urlRef = useRef<HTMLInputElement>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isValid, setIsValid] = useState<boolean>(true);
+  const [color, setColor] = useColor("#111729");
 
   const validateUrl = () => {
     if (urlRef.current) {
@@ -18,7 +21,6 @@ function App() {
         setIsOpen(true);
       } else {
         setIsValid(false);
-        console.log('Invalid URL:', url);
       }
     }
   }
@@ -35,7 +37,10 @@ function App() {
           QR Code
         </button>
       </div>
-      <QrPopup isOpen={ isOpen } onClose={ onClose } url={ urlRef.current?.value ?? '' } />
+      <div className="card">
+        <ColorPicker color={ color } onChange={ setColor } />
+      </div>
+      <QrPopup isOpen={ isOpen } onClose={ onClose } url={ urlRef.current?.value ?? '' } color={ color } />
       <ErrorPopup isOpen={ !isValid } onClose={ () => setIsValid(true) } />
     </div>
   )
