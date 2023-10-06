@@ -23,3 +23,12 @@
     height: 50px;
   }
 }
+
+.QrContainer {
+  display: flex;
+  gap: 20px;
+
+  .card {
+    min-width: 350px;
+  }
+}
